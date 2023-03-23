@@ -1,10 +1,11 @@
 
+// import First from "./template1"
 export default function Generate(){
 
     return (
         <>
             <div className="cont">
-                <h2>hello world</h2>
+                <First/>   
             </div>
         </>
     )
