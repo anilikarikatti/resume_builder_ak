@@ -12,7 +12,27 @@
 
 .inp{
     height: 20px;
-    width: 200px;
+    width: 260px;
     position: relative;
     top: 40px 40px;
+
+}
+
+.center{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.margin-10{
+    margin-top: 10px
+}
+
+.contai{
+    height: 100vh;
+}
+
+.heading{
+    color: blue;
+    font-size: 30px;
+    text-transform: capitalize;
 }

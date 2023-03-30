@@ -13,6 +13,7 @@ export default function Input(){
 
         internship:"",
         intership_date:"",
+        intership_date_end:"",
         email:"",
         skills:"",
         projects:"",
@@ -30,111 +31,115 @@ export default function Input(){
 
     return(
         <>
-            <div className="cont flex">
-                <div className="di">
+                <div className="heading">enter your details</div>
+
+            <div className=" flex">
+                <div className="di center">
                     <label htmlFor="fname">full name</label>
                     <div >
-                    <input className="fname inp" id="fname" name="fname" onChange ={changeData}/>
+                    <input className="fname inp margin-10" id="fname" name="fname" onChange ={changeData}/>
                 </div> 
                 </div>   
 
-                <div className="di ">
+                <div className="di center">
                 
-                <label htmlFor="role">role</label>
+                <label htmlFor="role" >role</label>
                 <div >
 
-                <input className="role inp" id="role" name="role" onChange ={changeData}/>
+                <input className="role inp margin-10" id="role" name="role" onChange ={changeData}/>
                 </div>
+
                 </div>
                     
-                <div>
+                <div  className="di center">
                 <label htmlFor="address"> address</label>
                 <div>
 
-                <input className="address" id="address" name="address" onChange ={changeData}/>
+                <input className="address inp margin-10" id="address" name="address" onChange ={changeData}/>
                 </div>
                 </div>
                 
 
-                <div>
+                <div className="di center">
                 <label htmlFor="city">city</label>
                 <div>
 
-                <input className="city" id="city" name="city" onChange ={changeData}/>
+                <input className="city inp margin-10" id="city" name="city" onChange ={changeData}/>
                 </div>
                 </div>
 
-                <div>
+                <div className="di center">
                 <label htmlFor="mobile">mobile</label>
                 <div>
 
-                <input className="mobile" id="mobile" name="mobile" onChange ={changeData}/>
+                <input className="mobile inp margin-10" id="mobile" type="tel"name="mobile" onChange ={changeData}/>
                 </div>
                 </div>
 
                 
-                <div>
-                <label htmlFor="gmail">gmail</label>
+                <div className="di center">
+                <label htmlFor="gmail">Email</label>
                 <div>
                 
-                <input className="gmail" id="gmail"  name="gmail"onChange ={changeData}/>
+                <input className="gmail inp margin-10" id="gmail"  name="gmail" type = "email" onChange ={changeData}/>
                 </div>
                 </div>
 
                 
                 
 
-                <div>
+                <div className="di center">
                                 
                <label htmlFor="education">education</label>
                <div>
                 
-                <input className="education" id="education"  name="education"onChange ={changeData}/>
+                <input className="education inp margin-10" id="education"  name="education"onChange ={changeData}/>
                 </div>
                 </div>
 
                 
-                <div>
+                <div className="di center">
                 <label htmlFor="internship">internship</label>
                 <div>
 
-                <input className="internship" id="internship" name="internship" onChange ={changeData}/>
+                <input className="internship inp margin-10" id="internship" name="internship" type= "date" onChange ={changeData}/>
                 </div>
                 </div>
 
                 
-                <div>
-                <label htmlFor="intership date">intership date</label>
+                <div className="di center">
+                <label htmlFor="intership_date">intership start date </label>
                 <div>
 
-                <input className="intership date" id="intership date"  name="intership date"onChange ={changeData}/>
+                <input className="intership-date inp margin-10" id="intership_date"  name="intership_date" type="date" onChange ={changeData}/>
                 </div>
                 </div>
 
                 
-                <div>
+                
+                {/* <div className="di center">
                 <label htmlFor="email">email</label>
                 <div>
 
-                <input className="email" id="email" name="email" onChange ={changeData}/>
+                <input className="email inp margin-10" id="email" name="email" onChange ={changeData}/>
                 </div>
-                </div>
+                </div> */}
 
                 
-                <div>
+                <div className="di center">
                 <label htmlFor="skills">skills</label>
                 <div>
 
-                <input className="skill" id="skills"  name="skills"onChange ={changeData}/>
+                <textarea className="skill margin-10" id="skills"  name="skills" rows = "4" cols ="32" onChange ={changeData}/>
                 </div>
                 </div>
                 
 
-                <div>
+                <div className="di center mt-20 ">
                 <label htmlFor="projects">projects</label>
                 <div>
                 
-                <input className="projects" id="projects" name="projects" onChange ={changeData}/>
+                <input className="projects inp margin-10" id="projects" name="projects" onChange ={changeData}/>
                 </div>
                 </div>
                 
