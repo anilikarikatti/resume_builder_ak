@@ -1,13 +1,13 @@
 
 // import First from "./template1"
-export default function Generate(){
+// export default function Generate(){
 
-    return (
-        <>
-            <div className="cont">
-                <First/>   
-            </div>
-        </>
-    )
+//     return (
+//         <>
+//             <div className="cont">
+//                 <First/>   
+//             </div>
+//         </>
+//     )
 
-}
+// }
