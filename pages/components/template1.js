@@ -66,17 +66,18 @@ export default function First(){
                 <h3 className="title">profile</h3>
             </div>
             <div className="profile_content  textColor">
-                <h3 className="capital">Hi i'm {fname} ,i'm a {role}</h3> 
+                <h3 className="capital">Hi  i&apos;m  {fname} , i&apos;m a {role}</h3> 
                 <h3 className="capital"> if you want to see my work :<a href="https://github.com/anilikarikatti" className="link"> github click here</a>  </h3>
                 
 
                 <div className="skills">
                     <h3 className="textColor marginTop">skills</h3>
                     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",width:"300px",marginTop:"10px"}}>
-                    {skills.map((elem)=>
-                        <div className="line-height" key={elem}>
-                            {elem}
-                        </div>
+                    {skills.map((elem)=>{
+                        return (<div className="line-height" key={elem}>
+                            {`${elem}`}
+                        </div>)}
+
                     )}
                     
                     </div>
