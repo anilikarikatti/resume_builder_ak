@@ -27,9 +27,11 @@ export default function First(){
 
     } = query
 
+    
     skills = skills.split(/\s/g);
     skills = skills.filter(elem=>elem!="")
     console.log(skills);
+    
     return (
         <>
         {/* <main className={styles.main}> */}

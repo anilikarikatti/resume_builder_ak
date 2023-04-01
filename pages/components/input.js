@@ -5,6 +5,7 @@ import First from "./template1";
 import Router from "next/router";
 
 export default function Input(){
+    let [click,setClick] = useState(false)
     let [data,setData] = useState({
         fname:"",
         role:"",
@@ -25,6 +26,7 @@ export default function Input(){
     
     // let {fname} = data
 
+    
     console.log(data);
      function changeData(e){
 
@@ -40,8 +42,10 @@ export default function Input(){
             pathname:"/components/template1",
             query:data
         })
-
+       
     }
+
+
 
     return(
         <>
@@ -159,7 +163,9 @@ export default function Input(){
 
                 <div className="mt-50">
                 
-                    <a onClick={()=>send()}>template1</a>
+                    <a onClick={()=>{ console.log(data.skills.length);if(data.skills.length > 0){
+                        send()
+                    }}}>template1</a>
 
                     {/* <button onClick={()=><First/>}>template1</button> */}
                     {/* <First/> */}
