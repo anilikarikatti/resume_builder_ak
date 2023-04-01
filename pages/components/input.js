@@ -1,4 +1,8 @@
 import { useState } from "react"
+import Link from "next/link";
+import First from "./template1";
+
+import Router from "next/router";
 
 export default function Input(){
     let [data,setData] = useState({
@@ -15,18 +19,28 @@ export default function Input(){
         intership_date:"",
         intership_date_end:"",
         email:"",
-        skills:"",
         projects:"",
 
     })
     
+    // let {fname} = data
+
+    console.log(data);
      function changeData(e){
 
 
         setData({...data,[e.target.name]:e.target.value})
         
-    console.log(data);
+    // console.log(data);
         
+    }
+    console.log(Router);
+    function send(){
+        Router.push({
+            pathname:"/components/template1",
+            query:data
+        })
+
     }
 
     return(
@@ -135,12 +149,21 @@ export default function Input(){
                 </div>
                 
 
-                <div className="di center mt-20 ">
+                <div className="di center mt-20 mt-50">
                 <label htmlFor="projects">projects</label>
                 <div>
                 
                 <input className="projects inp margin-10" id="projects" name="projects" onChange ={changeData}/>
                 </div>
+                </div>
+
+                <div className="mt-50">
+                
+                    <a onClick={()=>send()}>template1</a>
+
+                    {/* <button onClick={()=><First/>}>template1</button> */}
+                    {/* <First/> */}
+
                 </div>
                 
                 {/* <label htmlFor="fname">fullname</label>

@@ -1,8 +1,35 @@
 import styles from '@/styles/Home.module.css'
 // import first from "../../styles/"
 
+import {useRouter} from 'next/router';
 export default function First(){
 
+    let router = useRouter();
+    console.log(router);
+
+    let {query} = router;
+
+    let {
+        fname,
+        role,
+        address,
+        city,
+        mobile,
+        gmail,
+        skills,
+        education,
+
+        internship,
+        intership_date,
+        intership_date_end,
+        email,
+        projects,
+
+    } = query
+
+    skills = skills.split(/\s/g);
+    skills = skills.filter(elem=>elem!="")
+    console.log(skills);
     return (
         <>
         {/* <main className={styles.main}> */}
@@ -11,13 +38,13 @@ export default function First(){
         <div className="box marginTop ">
             <div className="top">
                 <div>
-                    <h3 className="textColor marginLeft-20">Full Stack Developer</h3>
+                    <h3 className="textColor marginLeft-20">{role}</h3>
                 </div>
                 <div className="right">
                     <div className="textColor">
-                       <p>Hubballi,India</p> 
-                        <p>anilkarikatti333@gmail.com</p>  
-                       <p>7795549800</p> 
+                       <p>{city}</p> 
+                        <p>{gmail}</p>  
+                       <p>{mobile}</p> 
                     </div>
                 </div>
 
@@ -29,23 +56,32 @@ export default function First(){
                 </div>
 
                 <div className="name textColor ">
-                    <p>anil karikatti</p>
+                    <p>{fname}</p>
                    
                 </div>
             </div>
         </div>
-        <div className="box flex">
+        <div className="box flex1">
             <div className=" profile textColor">
                 <h3 className="title">profile</h3>
             </div>
             <div className="profile_content  textColor">
-                <h3 className="capital">Hi i'm anil karikatti ,i'm a Full stack developer</h3> 
+                <h3 className="capital">Hi i'm {fname} ,i'm a {role}</h3> 
                 <h3 className="capital"> if you want to see my work :<a href="https://github.com/anilikarikatti" className="link"> github click here</a>  </h3>
                 
 
                 <div className="skills">
                     <h3 className="textColor marginTop">skills</h3>
-                    <div className="flex">
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",width:"300px",marginTop:"10px"}}>
+                    {skills.map((elem)=>{
+                        return( <div className=" line-height" >
+                            {elem}
+                        </div>)
+                    })}
+                    
+                    </div>
+
+                    {/* <div className="flex1">
                     <div className=" line-height">
                         <li>
                             html
@@ -56,20 +92,9 @@ export default function First(){
                         <li>
                            javascript 
                         </li>
-                    </div>
-                    <div className="sec-col line-height">
-                        <li>
-                            node js  
-                          </li>
-                          <li className="">
-                            express   
-                          </li>
-                          <li>
-                              react js   
-                          </li>
-      
-                    </div>
-                    <div className="sec-col line-height">
+                    </div> */}
+                    
+                    {/* <div className="sec-col line-height">
                         <li>
                             next js    
                         </li>
@@ -80,19 +105,19 @@ export default function First(){
                             mysql
                         </li>
                     </div>
-                </div>
+                    </div> */}
                 </div>
             </div>
         </div>
-        <div className="box flex">
+        <div className="box flex1">
             <div className=" profile textColor">
                 <h3 className="title">Education</h3>
             </div>
             <div className="profile_content  textColor ">
-                <h3>B E computer science at jain college of engineering and technology hubballi</h3>
+                <h3>{education}</h3>
             </div>
         </div>
-        <div className="box flex">
+        <div className="box flex1">
             <div className=" profile textColor">
                 <h3 className="title">projects</h3>
             </div>
@@ -146,7 +171,7 @@ export default function First(){
             </div>
         </div>
 
-        <div className="box flex">
+        <div className="box flex1">
             <div className=" profile textColor">
                 <h3 className="title">internship</h3>
             </div>
@@ -156,15 +181,15 @@ export default function First(){
             </div>
         </div>
 
-        <div className="box flex">
+        <div className="box flex1">
             <div className=" profile textColor">
                 <h3 className="title">contacts</h3>
             </div>
             <div className="profile_content  textColor ">
-                <p>address : a i karikatti</p>
+                <p>address : {address}</p>
                 <p className="add">savadatti , Karnataka ,591126</p>
-                <p> email : <a href="" className="link small">anilkarikatti333@gmail.com</a> </p>
-                <p>mobile:7795549800</p>
+                <p> email : <a href="" className="link small">{gmail}</a> </p>
+                <p>mobile:{mobile}</p>
             </div>
         </div>
         </div>

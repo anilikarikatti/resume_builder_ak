@@ -36,3 +36,7 @@
     font-size: 30px;
     text-transform: capitalize;
 }
+
+.mt-50{
+    margin-top: 100px;
+}
