@@ -74,7 +74,7 @@ export default function First(){
                     <h3 className="textColor marginTop">skills</h3>
                     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",width:"300px",marginTop:"10px"}}>
                     {skills.map((elem)=>{
-                        return( <div className=" line-height" >
+                        return( <div className=" line-height" key={elem}>
                             {elem}
                         </div>)
                     })}
