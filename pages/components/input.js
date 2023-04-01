@@ -5,7 +5,6 @@ import First from "./template1";
 import Router from "next/router";
 
 export default function Input(){
-    let [click,setClick] = useState(false)
     let [data,setData] = useState({
         fname:"",
         role:"",
