@@ -27,7 +27,15 @@ export default function First(){
 
     } = query
 
+//    let fun = ()=>{
+    // skills = []
+    // console.log(skills == undefined);
     
+     if(skills != undefined){
+        skills = skills.split(/\s/g);
+        skills = skills.filter(elem=>elem!="")
+        console.log(skills);}
+//    }
     
     return (
         <>
@@ -72,12 +80,13 @@ export default function First(){
                 <div className="skills">
                     <h3 className="textColor marginTop">skills</h3>
                     <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",width:"300px",marginTop:"10px"}}>
-                    {skills.map((elem)=>{
+                    {(skills != undefined)?skills.map((elem)=>{
+
                         return (<div className="line-height" key={elem}>
                             {`${elem}`}
                         </div>)}
 
-                    )}
+                    ):""}
                     
                     </div>
 

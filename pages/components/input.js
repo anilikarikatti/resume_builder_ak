@@ -35,7 +35,7 @@ export default function Input(){
     // console.log(data);
         
     }
-    console.log(Router);
+    // console.log(Router);
     function send(){
         Router.push({
             pathname:"/components/template1",
@@ -162,10 +162,10 @@ export default function Input(){
 
                 <div className="mt-50">
                 
-                    <a onClick={()=>{ console.log(data.skills.length);if(data.skills.length > 0){
-                        send()
-                    }}}>template1</a>
-
+                    <a onClick={()=>send()}>template1</a>
+                    {/* link through */}
+                    {/* <Link href={{pathname:"/components/template1",
+            query:data}}>temlate</Link> */}
                     {/* <button onClick={()=><First/>}>template1</button> */}
                     {/* <First/> */}
 
