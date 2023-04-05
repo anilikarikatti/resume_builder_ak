@@ -144,7 +144,7 @@ export default function First(){
             <div className="profile_content  textColor ">
                 {(projectListJson != undefined) ?projectListJson.map(elem=>{
                     return(
-                        <div className="projects">
+                        <div className="projects" key = {elem.project_title} >
                         <h4 className="textColor">{elem.project_title}</h4>
                         
                             <li className="line-height">{elem.project_description}</li>
