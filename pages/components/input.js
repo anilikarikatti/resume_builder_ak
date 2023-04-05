@@ -5,6 +5,18 @@ import First from "./template1";
 import Router from "next/router";
 
 export default function Input(){
+
+
+    let [con,setcon] = useState(false)
+    let [project,setProject] = useState({
+        project_title:"",
+        project_description:"",
+        project_link:""
+
+    })
+
+    let [projects_list,setProjects_list] = useState([])
+
     let [data,setData] = useState({
         fname:"",
         role:"",
@@ -17,29 +29,63 @@ export default function Input(){
 
         internship:"",
         intership_date:"",
-        intership_date_end:"",
-        email:"",
-        projects:"",
-
+        
+        github_link:"",
+        internship_company:"",
+        state:"",
+        pincode:"",
     })
     
     // let {fname} = data
 
     
-    console.log(data);
+    // console.log(data);
      function changeData(e){
 
-
+       
         setData({...data,[e.target.name]:e.target.value})
+
         
     // console.log(data);
         
     }
+
+    let setProjectData = (e)=>{
+        // console.log("ak");
+        setProject({...project,[e.target.name]:e.target.value})
+    }
+
+    let add = ()=>{
+        // console.log("a");
+        setProjects_list([...projects_list,{...project}])
+        setProject({ project_title:"",
+        project_description:""})
+
+
+        
+        // console.log(project);
+    }
+
     // console.log(Router);
+
+    // console.log(projects_list);
+
+    let confirm = ()=>{
+        let projectListJson = JSON.stringify(projects_list);
+        setData({...data,projectListJson})
+        setcon(true)
+    }
+
+
     function send(){
+        
+        
+        console.log(data);
+        // stopped here 
         Router.push({
             pathname:"/components/template1",
-            query:data
+            // query:{data}
+            query:{...data}
         })
        
     }
@@ -72,7 +118,7 @@ export default function Input(){
                 <label htmlFor="address"> address</label>
                 <div>
 
-                <input className="address inp margin-10" id="address" name="address" onChange ={changeData}/>
+                <input className="address inp margin-10" id="address" name="address" onChange ={changeData} placeholder="ex : A I Karikatt"/>
                 </div>
                 </div>
                 
@@ -82,6 +128,23 @@ export default function Input(){
                 <div>
 
                 <input className="city inp margin-10" id="city" name="city" onChange ={changeData}/>
+                </div>
+                </div>
+
+                    
+                <div  className="di center">
+                <label htmlFor="state"> state</label>
+                <div>
+
+                <input className="state inp margin-10" id="state" name="state" onChange ={changeData} placeholder="ex :karnataka"/>
+                </div>
+                </div>
+
+                <div  className="di center">
+                <label htmlFor="pincode"> pincode</label>
+                <div>
+
+                <input className="pincode inp margin-10" id="pincode" name="pincode" onChange ={changeData} placeholder="ex : 58001"/>
                 </div>
                 </div>
 
@@ -114,18 +177,37 @@ export default function Input(){
                 </div>
                 </div>
 
+                <div className="di center">
+                                
+               <label htmlFor="github_link">github link</label>
+               <div>
+                
+                <input className="github_link inp margin-10" id="github_link"  name="github_link"onChange ={changeData}/>
+                </div>
+                </div>
+
+
+                <div className="di center">
+                <label htmlFor="internship_company">internship_company</label>
+                <div>
+
+                <input className="internship_company inp margin-10" id="internship_company" name="internship_company" type= "text" onChange ={changeData}/>
+                </div>
+                </div>
                 
                 <div className="di center">
-                <label htmlFor="internship">internship</label>
+                <label htmlFor="internship">internship start date</label>
                 <div>
 
                 <input className="internship inp margin-10" id="internship" name="internship" type= "date" onChange ={changeData}/>
                 </div>
                 </div>
 
+
+
                 
                 <div className="di center">
-                <label htmlFor="intership_date">intership start date </label>
+                <label htmlFor="intership_date">intership end date </label>
                 <div>
 
                 <input className="intership-date inp margin-10" id="intership_date"  name="intership_date" type="date" onChange ={changeData}/>
@@ -151,18 +233,39 @@ export default function Input(){
                 </div>
                 </div>
                 
-
+                
                 <div className="di center mt-20 mt-50">
-                <label htmlFor="projects">projects</label>
+                <label htmlFor="project" >project titles</label>
                 <div>
                 
-                <input className="projects inp margin-10" id="projects" name="projects" onChange ={changeData}/>
+                <input className="projects inp margin-10" id="projects" name="project_title" onChange ={setProjectData} value={project.project_title}/>
                 </div>
                 </div>
 
-                <div className="mt-50">
+                <div className="di center mt-20">
+                <label htmlFor="projects" >projects description</label>
+                <div>
                 
-                    <a onClick={()=>send()}>template1</a>
+                <textarea className="projects margin-10" id="projects"  name="project_description" rows = "7" cols ="32" onChange ={setProjectData} value={project.project_description}/>
+                </div>
+                </div>
+
+                <div className="di center mt-20 mt-50" style={{marginTop:"140px"}}>
+                <label htmlFor="project" >project online link</label>
+                <div>
+                
+                <input className="projects inp margin-10" id="projects" name="project_link" onChange ={setProjectData} value={project.project_link}/>
+                </div>
+                </div>
+
+                <button onClick={add} style={{marginTop:"70px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >add project</button>
+
+                <button onClick={confirm} style={{marginTop:"70px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >confirm </button>
+
+
+                <div className="mt-50" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center"}}>
+                
+                    <a onClick={()=>{if(con){send()}else{alert("please click confirm to submit")}}} style={{cursor:"pointer"}}>template1</a>
                     {/* link through */}
                     {/* <Link href={{pathname:"/components/template1",
             query:data}}>temlate</Link> */}

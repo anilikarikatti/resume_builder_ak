@@ -5,10 +5,13 @@ import {useRouter} from 'next/router';
 export default function First(){
 
     let router = useRouter();
-    console.log(router);
+    // console.log(router);
 
     let {query} = router;
 
+    let {data} = query;
+    // console.log(data);
+    // console.log(data);
     let {
         fname,
         role,
@@ -21,12 +24,19 @@ export default function First(){
 
         internship,
         intership_date,
-        intership_date_end,
-        email,
-        projects,
+       
+        github_link,
+        internship_company,
+        state,
+        pincode,
+        projectListJson,
 
-    } = query
-
+    } = query;
+    if(projectListJson != undefined){
+        projectListJson = JSON.parse(projectListJson);
+        console.log("ak");
+        console.log(projectListJson);
+    }
 //    let fun = ()=>{
     // skills = []
     // console.log(skills == undefined);
@@ -34,7 +44,8 @@ export default function First(){
      if(skills != undefined){
         skills = skills.split(/\s/g);
         skills = skills.filter(elem=>elem!="")
-        console.log(skills);}
+        console.log(skills);
+    }
 //    }
     
     return (
@@ -74,7 +85,7 @@ export default function First(){
             </div>
             <div className="profile_content  textColor">
                 <h3 className="capital">Hi  i&apos;m  {fname} , i&apos;m a {role}</h3> 
-                <h3 className="capital"> if you want to see my work :<a href="https://github.com/anilikarikatti" className="link"> github click here</a>  </h3>
+                <h3 className="capital"> if you want to see my work :<a href={github_link} className="link"> github click here</a>  </h3>
                 
 
                 <div className="skills">
@@ -131,25 +142,18 @@ export default function First(){
                 <h3 className="title">projects</h3>
             </div>
             <div className="profile_content  textColor ">
-                    <div className="projects">
-                        <h4 className="textColor">mybio backup</h4>
+                {(projectListJson != undefined) ?projectListJson.map(elem=>{
+                    return(
+                        <div className="projects">
+                        <h4 className="textColor">{elem.project_title}</h4>
                         
-                            <li className="line-height">this is our client product this can be done in my internship . this is available in play store also.</li>
-                            <li className="line-height">this product provides a secured account in cloud to everyone to access medical documents such as MRI report, CT scan, X ray, Lab reports, Other medical tests, 3D imaging, medical prescriptions in digital format from the original issuers of these certificates. </li>
-
-
-                            <li className="line-height">the project will be hosted on aws i have also little bit knowledge about this </li>
+                            <li className="line-height">{elem.project_description}</li>
                             
-                            
-
-
-                            <li className="line-height"><b>in this project i have been  be worked on backend using node js and express js and mysql </b> </li> 
-
-
-                            <li className="line-height"><b>the admin side of this product has been done by be ..this project using nunjucks template, tailwind css , html javascript </b></li>
-                        
                     </div>
-
+                    )
+                }):""}
+                    
+{/* 
                     <div className="projects">
                         <h4 className="textColor">memory game</h4>
                         
@@ -176,7 +180,7 @@ export default function First(){
                                 the same project will be done by normal html , css and javascript for code  : <a href="https://github.com/anilikarikatti/quiz_game" className="link">click here</a>
                             </li>
                        
-                    </div>
+                    </div> */}
             </div>
         </div>
 
@@ -185,8 +189,8 @@ export default function First(){
                 <h3 className="title">internship</h3>
             </div>
             <div className="profile_content  textColor ">
-                <h3>samarth meditech pvt.ltd  hubballi </h3>
-                <p>aug 2022 to july 2023</p>
+                <h3>{internship_company} </h3>
+                <p>{internship} to {intership_date}</p>
             </div>
         </div>
 
@@ -196,7 +200,7 @@ export default function First(){
             </div>
             <div className="profile_content  textColor ">
                 <p>address : {address}</p>
-                <p className="add">savadatti , Karnataka ,591126</p>
+                <p className="add">{city} , {state} ,{pincode}</p>
                 <p> email : <a href="" className="link small">{gmail}</a> </p>
                 <p>mobile:{mobile}</p>
             </div>
