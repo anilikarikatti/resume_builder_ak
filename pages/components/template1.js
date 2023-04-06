@@ -2,7 +2,10 @@ import styles from '@/styles/Home.module.css'
 // import first from "../../styles/"
 
 import {useRouter} from 'next/router';
+import { useRef } from 'react';
 export default function First(){
+
+     
 
     let router = useRouter();
     // console.log(router);
@@ -30,8 +33,12 @@ export default function First(){
         state,
         pincode,
         projectListJson,
+        image
 
     } = query;
+
+    console.log(image);
+
     if(projectListJson != undefined){
         projectListJson = JSON.parse(projectListJson);
         console.log("ak");
@@ -54,9 +61,13 @@ export default function First(){
             
         <div className="container">
         <div className="box marginTop ">
+
+       
             <div className="top">
+
                 <div>
                     <h3 className="textColor marginLeft-20">{role}</h3>
+                    
                 </div>
                 <div className="right">
                     <div className="textColor">
@@ -70,10 +81,12 @@ export default function First(){
             </div>
             <div className="top " >
                 <div className="img">
-                   
+
+                <img src={image} height="200px" width="200px" ></img>
+
                 </div>
 
-                <div className="name textColor ">
+                <div className="name textColor" >
                     <p>{fname}</p>
                    
                 </div>
@@ -144,10 +157,24 @@ export default function First(){
             <div className="profile_content  textColor ">
                 {(projectListJson != undefined) ?projectListJson.map(elem=>{
                     return(
-                        <div className="projects" key = {elem.project_title} >
+
+                        <div className="projects" key = {elem.project_title }>
                         <h4 className="textColor">{elem.project_title}</h4>
                         
-                            <li className="line-height">{elem.project_description}</li>
+                            {(elem.project_description != "")?
+                                elem.project_description.split(/\n/).map((elem,index)=>{
+                                    console.log(elem);
+
+                                    return(
+                                        <li key={index} >{elem}</li>
+                                    )
+                                })
+                                
+                        :""}
+
+                           {(elem.project_link != "")? 
+                           <li> to run  <a href={elem.project_link}>click here</a></li>
+                           :""}
                             
                     </div>
                     )

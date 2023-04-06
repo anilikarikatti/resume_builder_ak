@@ -119,11 +119,12 @@ li{
 .small{
     text-transform: lowercase;
 }
-/* 
+
 img{
     height: 200px;
     width: 200px;
-} */
+    border-radius: 50%;
+}
 
 .acolor{
     color: rgb(226, 138, 24);
@@ -131,4 +132,10 @@ img{
 
 .cont{
     height: 100vh;
+}
+
+.bg-tmp1{
+    background-color: black;
+    color: white;
+
 }

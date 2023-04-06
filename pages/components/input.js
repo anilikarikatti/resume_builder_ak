@@ -4,8 +4,21 @@ import First from "./template1";
 
 import Router from "next/router";
 
+import ImageUploading from 'react-images-uploading';
+
 export default function Input(){
 
+    let [image,setImage] = useState("");
+
+
+   let imageUpload = (e)=>{
+        // console.log(e.target.files);
+        let elem = e.target.files[0]
+        let url = URL.createObjectURL(elem);
+
+        console.log(url);
+        setImage(url)
+    }
 
     let [con,setcon] = useState(false)
     let [project,setProject] = useState({
@@ -34,15 +47,16 @@ export default function Input(){
         internship_company:"",
         state:"",
         pincode:"",
+        image:""
     })
     
     // let {fname} = data
 
-    
+    console.log(data.image);
     // console.log(data);
      function changeData(e){
 
-       
+        console.log(e.target);
         setData({...data,[e.target.name]:e.target.value})
 
         
@@ -59,7 +73,9 @@ export default function Input(){
         // console.log("a");
         setProjects_list([...projects_list,{...project}])
         setProject({ project_title:"",
-        project_description:""})
+        project_description:"",
+        project_link:""
+    })
 
 
         
@@ -72,7 +88,7 @@ export default function Input(){
 
     let confirm = ()=>{
         let projectListJson = JSON.stringify(projects_list);
-        setData({...data,projectListJson})
+        setData({...data,projectListJson,image})
         setcon(true)
     }
 
@@ -100,7 +116,7 @@ export default function Input(){
                 <div className="di center">
                     <label htmlFor="fname">full name</label>
                     <div >
-                    <input className="fname inp margin-10" id="fname" name="fname" onChange ={changeData}/>
+                    <input className="fname inp margin-10" id="fname" name="fname" onChange ={changeData} />
                 </div> 
                 </div>   
 
@@ -182,7 +198,7 @@ export default function Input(){
                <label htmlFor="github_link">github link</label>
                <div>
                 
-                <input className="github_link inp margin-10" id="github_link"  name="github_link"onChange ={changeData}/>
+                <input className="github_link inp margin-10" id="github_link"  name="github_link"onChange ={changeData} placeholder="https://github.com/anilikarikatti"/>
                 </div>
                 </div>
 
@@ -229,7 +245,7 @@ export default function Input(){
                 <label htmlFor="skills">skills</label>
                 <div>
 
-                <textarea className="skill margin-10" id="skills"  name="skills" rows = "4" cols ="32" onChange ={changeData}/>
+                <textarea className="skill margin-10" id="skills"  name="skills" rows = "4" cols ="32" onChange ={changeData} placeholder="ex:html css"/>
                 </div>
                 </div>
                 
@@ -243,10 +259,10 @@ export default function Input(){
                 </div>
 
                 <div className="di center mt-20">
-                <label htmlFor="projects" >projects description</label>
+                <label htmlFor="projects" placeholder="ex:description of project and write next line for data">projects description</label>
                 <div>
                 
-                <textarea className="projects margin-10" id="projects"  name="project_description" rows = "7" cols ="32" onChange ={setProjectData} value={project.project_description}/>
+                <textarea className="projects margin-10" id="projects"  name="project_description" rows = "7" cols ="32" onChange ={setProjectData} value={project.project_description} placeholder="ex:you can enter description line by line "/>
                 </div>
                 </div>
 
@@ -254,16 +270,29 @@ export default function Input(){
                 <label htmlFor="project" >project online link</label>
                 <div>
                 
-                <input className="projects inp margin-10" id="projects" name="project_link" onChange ={setProjectData} value={project.project_link}/>
+                <input className="projects inp margin-10" id="projects" name="image" onChange ={setProjectData} value={project.project_link} placeholder="https://resume-builder-ak.vercel.app/"/>
                 </div>
                 </div>
 
-                <button onClick={add} style={{marginTop:"70px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >add project</button>
+                <div className="di center mt-20 mt-50" style={{marginTop:"40px"}}>
+                <label htmlFor="project" >image</label>
+                <div>
+                
+                <input className="projects inp margin-10" id="projects" name="project_link" onChange ={imageUpload} type="file"  accept="image/*" capture/>
+                </div>
+                </div>
 
-                <button onClick={confirm} style={{marginTop:"70px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >confirm </button>
+               
+                <img  src={image} id="projects"  style={{marginTop:"50px",display:(image)?"block":"none"}} height="100px" width="100px"/>
+              
+           
+
+                <button onClick={add} style={{marginTop:(image != "")?"10px":"50px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >add project</button>
+
+                <button onClick={confirm} style={{marginTop:"20px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >confirm </button>
 
 
-                <div className="mt-50" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center"}}>
+                <div className="bg-tmp1" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center",marginTop:"10px"}}>
                 
                     <a onClick={()=>{if(con){send()}else{alert("please click confirm to submit")}}} style={{cursor:"pointer"}}>template1</a>
                     {/* link through */}
