@@ -110,7 +110,10 @@ export default function Input(){
 
     return(
         <>
-                <div className="heading">enter your details</div>
+            <div className="inpbg">
+                
+
+                <div className="heading text-center">enter your details</div>
 
             <div className=" flex">
                 <div className="di center">
@@ -266,33 +269,37 @@ export default function Input(){
                 </div>
                 </div>
 
-                <div className="di center mt-20 mt-50" style={{marginTop:"140px"}}>
-                <label htmlFor="project" >project online link</label>
+                <div className="di center mt-20 mt-50" style={{marginTop:"220px"}}>
+                <label htmlFor="project"  >project online link</label>
                 <div>
                 
                 <input className="projects inp margin-10" id="projects" name="image" onChange ={setProjectData} value={project.project_link} placeholder="https://resume-builder-ak.vercel.app/"/>
                 </div>
                 </div>
 
+               
+                <img  src={image} id="projects" className="relative left-[45%]"  style={{marginTop:"50px",display:(image)?"block":"none"}} height="100px" width="100px"/>
+              
+
+           
+                <button onClick={add} className="relative left-[40%]" style={{marginTop:(image != "")?"10px":"50px",width:"100px",marginLeft:"80px",color:"white",textTransform:"capitalize",height:"30px" ,
+                background:"blue"}}  >add project</button>
+
+
+
+
                 <div className="di center mt-20 mt-50" style={{marginTop:"40px"}}>
-                <label htmlFor="project" >image</label>
+                <label htmlFor="project" >select profile</label>
                 <div>
                 
                 <input className="projects inp margin-10" id="projects" name="project_link" onChange ={imageUpload} type="file"  accept="image/*" capture/>
                 </div>
                 </div>
 
-               
-                <img  src={image} id="projects"  style={{marginTop:"50px",display:(image)?"block":"none"}} height="100px" width="100px"/>
-              
-           
-
-                <button onClick={add} style={{marginTop:(image != "")?"10px":"50px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >add project</button>
-
-                <button onClick={confirm} style={{marginTop:"20px",width:"100px",marginLeft:"80px",color:"green",textTransform:"capitalize",height:"30px"}}  >confirm </button>
+                <button onClick={confirm} className="relative left-[40%]"  style={{marginTop:"20px",width:"100px",marginLeft:"80px",color:"white",textTransform:"capitalize",height:"30px",background:"blue",marginTop:"40px"}}  >confirm </button>
 
 
-                <div className="bg-tmp1" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center",marginTop:"10px"}}>
+                <div className="bg-tmp1 relative left-[45%] flex items-center justify-center" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center",marginTop:"20px",}}>
                 
                     <a onClick={()=>{if(con){send()}else{alert("please click confirm to submit")}}} style={{cursor:"pointer"}}>template1</a>
                     {/* link through */}
@@ -305,7 +312,7 @@ export default function Input(){
                 
                 {/* <label htmlFor="fname">fullname</label>
                 <input className="fname" id="fname"/> */}
-
+            </div>
             </div>           
         </>
     )

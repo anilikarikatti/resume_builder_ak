@@ -139,3 +139,39 @@ img{
     color: white;
 
 }
+
+.logo{
+    background-image: url("../public/resume_logo.png");
+    background-repeat: no-repeat;
+}
+
+
+/* background image for main page */
+
+.back{
+    background-image: url("../public/bg_img.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* opacity: 0.4; */
+
+}
+
+.txt{
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.txt1{
+    color : rgb(7, 7, 17);
+    font-weight: bold;
+}
+
+.btn{
+    background-color: #0091ff;;
+}
+/* 
+.blue{
+    background-color: rgb(86, 177, 202);
+} */
+
+

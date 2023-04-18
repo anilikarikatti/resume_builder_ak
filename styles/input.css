@@ -5,16 +5,20 @@
 }
 
 .di{
-    height: 30px;
+    height: 50px;
     margin-top: 10px;
     text-transform: uppercase;
+    color: azure;
 }
 
 .inp{
-    height: 20px;
+    height: 30px;
     width: 260px;
     position: relative;
     top: 40px 40px;
+    color: black;
+    border-radius: 10px;
+    
 
 }
 
@@ -32,11 +36,17 @@
 }
 
 .heading{
-    color: blue;
+    color: rgb(114, 114, 153);
     font-size: 30px;
     text-transform: capitalize;
 }
 
 .mt-50{
     margin-top: 100px;
+}
+
+.inpbg{
+    background-image: url("../public/input_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
