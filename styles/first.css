@@ -151,7 +151,7 @@ img{
 .back{
     background-image: url("../public/bg_img.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     /* opacity: 0.4; */
 
 }

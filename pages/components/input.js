@@ -113,7 +113,7 @@ export default function Input(){
             <div className="inpbg">
                 
 
-                <div className="heading text-center">enter your details</div>
+            <div className="heading text-center">enter your details</div>
 
             <div className=" flex">
                 <div className="di center">
@@ -248,7 +248,7 @@ export default function Input(){
                 <label htmlFor="skills">skills</label>
                 <div>
 
-                <textarea className="skill margin-10" id="skills"  name="skills" rows = "4" cols ="32" onChange ={changeData} placeholder="ex:html css"/>
+                <textarea className="skill margin-10 rounded-xl px-5 text-black" id="skills"  name="skills" rows = "4" cols ="32" onChange ={changeData} placeholder="ex:html css"/>
                 </div>
                 </div>
                 
@@ -265,49 +265,54 @@ export default function Input(){
                 <label htmlFor="projects" placeholder="ex:description of project and write next line for data">projects description</label>
                 <div>
                 
-                <textarea className="projects margin-10" id="projects"  name="project_description" rows = "7" cols ="32" onChange ={setProjectData} value={project.project_description} placeholder="ex:you can enter description line by line "/>
+                <textarea className="projects margin-10 rounded-xl px-5 text-black" id="projects"  name="project_description" rows = "7" cols ="32" onChange ={setProjectData} value={project.project_description} placeholder="ex:you can enter description line by line "/>
                 </div>
                 </div>
 
-                <div className="di center mt-20 mt-50" style={{marginTop:"220px"}}>
+                <div className="di center mt-20 mt-50 " style={{marginTop:"220px"}}>
                 <label htmlFor="project"  >project online link</label>
                 <div>
                 
-                <input className="projects inp margin-10" id="projects" name="image" onChange ={setProjectData} value={project.project_link} placeholder="https://resume-builder-ak.vercel.app/"/>
+                {/* <input className="projects inp margin-10 text-black" id="projects" name="" onChange ={setProjectData} value={project.project_link} placeholder="https://resume-builder-ak.vercel.app/"/> */}
                 </div>
                 </div>
 
                
-                <img  src={image} id="projects" className="relative left-[45%]"  style={{marginTop:"50px",display:(image)?"block":"none"}} height="100px" width="100px"/>
+                <div className="flex items-center">
+                    <img  src={image} id="projects" className="relative "  style={{marginTop:"50px",display:(image)?"block":"none"}} height="100px" width="100px"/>
+                </div>
               
 
            
-                <button onClick={add} className="relative left-[40%]" style={{marginTop:(image != "")?"10px":"50px",width:"100px",marginLeft:"80px",color:"white",textTransform:"capitalize",height:"30px" ,
+                <div className="flex items-center">
+                    <button onClick={add} className="rounded-md" style={{marginTop:(image != "")?"30px":"20px",width:"100px",marginLeft:"20px",color:"white",textTransform:"capitalize",height:"30px" ,
                 background:"blue"}}  >add project</button>
 
+                </div>
 
 
 
-                <div className="di center mt-20 mt-50" style={{marginTop:"40px"}}>
+                <div className="di center mt-20 mt-50 flex items-center" style={{marginTop:"40px"}}>
                 <label htmlFor="project" >select profile</label>
                 <div>
                 
                 <input className="projects inp margin-10" id="projects" name="project_link" onChange ={imageUpload} type="file"  accept="image/*" capture/>
                 </div>
                 </div>
-
-                <button onClick={confirm} className="relative left-[40%]"  style={{marginTop:"20px",width:"100px",marginLeft:"80px",color:"white",textTransform:"capitalize",height:"30px",background:"blue",marginTop:"40px"}}  >confirm </button>
-
-
-                <div className="bg-tmp1 relative left-[45%] flex items-center justify-center" style={{border:"2px solid black",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center",marginTop:"20px",}}>
                 
-                    <a onClick={()=>{if(con){send()}else{alert("please click confirm to submit")}}} style={{cursor:"pointer"}}>template1</a>
-                    {/* link through */}
-                    {/* <Link href={{pathname:"/components/template1",
-            query:data}}>temlate</Link> */}
-                    {/* <button onClick={()=><First/>}>template1</button> */}
-                    {/* <First/> */}
+                <div className="flex justify-center items-center ">
 
+                     <button onClick={confirm} className="relative  rounded-md text-center "  style={{marginTop:"20px",width:"100px",marginLeft:"80px",color:"white",textTransform:"capitalize",height:"30px",background:"blue"}}  >confirm </button>
+                </div>
+
+
+                <div className="flex items-center">
+                    <div className="bg-tmp1 relative  flex items-center justify-center" style={{border:"2px solid yellow",width:'100px',height:"100px",textAlign:"center",justifyContent:"center",justifyItems:"center",marginTop:"20px",borderRadius:"10px"}}>
+                
+                    <a onClick={()=>{if(con){send()}else{alert("please click confirm to submit")}}} style={{cursor:"pointer",textTransform:"capitalize"}}>template1</a>
+              
+
+            </div>
                 </div>
                 
                 {/* <label htmlFor="fname">fullname</label>
