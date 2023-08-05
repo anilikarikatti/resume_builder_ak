@@ -269,13 +269,13 @@ export default function Input(){
                 </div>
                 </div>
 
-                <div className="di center mt-20 mt-50 " style={{marginTop:"220px"}}>
+                {/* <div className="di center mt-20 mt-50 " style={{marginTop:"220px"}}>
                 <label htmlFor="project"  >project online link</label>
-                <div>
+                <div> */}
                 
                 {/* <input className="projects inp margin-10 text-black" id="projects" name="" onChange ={setProjectData} value={project.project_link} placeholder="https://resume-builder-ak.vercel.app/"/> */}
-                </div>
-                </div>
+                {/* </div> */}
+                {/* </div> */}
 
                
                 <div className="flex items-center">
